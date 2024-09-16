@@ -34,5 +34,6 @@ Submit a report detailing the steps followed in this project, including:
 - Data cleaning and analysis
 - Visualizations and insights
 
-- Deadline: September 30, 2024
-- Presentation Dates: October 5-6, 2024
+Deadline: September 30, 2024
+
+Presentation Dates: October 5-6, 2024
