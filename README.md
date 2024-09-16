@@ -11,7 +11,7 @@ This repository contains the dataset and project files for the Advanced Data Ana
 - **Research Questions:** Clearly draft research questions based on the provided dataset.
 - **Dataset Creation:** Merge or create a new dataset using SQL queries or Python.
 - **Data Preprocessing:** Perform cleaning and preprocessing of the dataset.
-- **Visualization:** Use Python, Power BI or Google Looker Studio for data visualization.
+- **Visualization:** Use Python, Power BI, or Google Looker Studio for data visualization.
 
 ### Issues and Solutions (25%)
 - Identify significant issues in using Big Data Analytics, especially for crime analysis.
@@ -34,5 +34,5 @@ Submit a report detailing the steps followed in this project, including:
 - Data cleaning and analysis
 - Visualizations and insights
 
-Deadline: January 15, 2024
-Presentation Dates: January 16-20, 2024
+- Deadline: September 30, 2024
+- Presentation Dates: October 5-6, 2024
