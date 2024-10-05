@@ -1,0 +1,26 @@
+
+Research Questions: Clearly draft research questions based on the provided dataset.
+
+The dataset contains the following key columns:
+1.	YEAR: The financial year in which the data was recorded (e.g., 2012/13).
+2.	FINANCIAL_QUARTER: The quarter of the financial year.
+3.	FORCE_NAME: The police force or department responsible for recording the data.
+4.	OFFENCE_DESCRIPTION: A description of the specific offence.
+5.	OFFENCE_GROUP: The broader category of crime (e.g., "Violence against the person").
+6.	OFFENCE_SUBGROUP: A more specific subcategory of the offence group.
+7.	OFFENCE_CODE: The code assigned to the offence.
+8.	NUMBER_OF_OFFENCES: The number of offences recorded.
+
+Based on this, here are the research questions:
+1.	What seasonal or quarterly variations can be identified in crime rates, 
+        and which offences exhibit the most fluctuation?
+
+2.      What are the long-term trends in fraud-related offences across different financial years?
+
+3.      What is the relationship between the rise in theft-related crimes and other factors
+        such as unemployment or economic downturns?
+
+4.       How do drug offences compare in high-crime areas versus other regions, and what 
+         interventions are most effective in curbing these trends?
+
+5.       How do crime rates vary between high-crime areas compared to lower-crime regions?

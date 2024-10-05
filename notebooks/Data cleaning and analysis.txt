@@ -1,0 +1,35 @@
+
+Data cleaning and analysis
+
+
+1.	Handling Missing Values
+Some of the columns, such as NUMBER_OF_OFFENCES, may contain missing values. You can handle them by replacing NULL values with default values (e.g., 0) or using other strategies.
+
+UPDATE final_project.public.final_project
+SET NUMBER_OF_OFFENCES = 0
+WHERE NUMBER_OF_OFFENCES IS NULL;
+
+SELECT
+  *
+FROM
+  FINAL_PROJECT.PUBLIC.FINAL_PROJECT
+
+2.	Removing Duplicates
+
+SELECT *
+FROM FINAL_PROJECT.PUBLIC.FINAL_PROJECT
+QUALIFY ROW_NUMBER() OVER (PARTITION BY YEAR, FORCE_NAME, OFFENCE_CODE ORDER BY YEAR ASC NULLS LAST) = 1;
+
+
+3.	Validating Data Types
+Ensure that all columns have appropriate data types. 
+SELECT * FROM FINAL_PROJECT.PUBLIC.FINAL_PROJECT 
+WHERE TRY_TO_NUMBER(NUMBER_OF_OFFENCES) IS NULL AND NUMBER_OF_OFFENCES IS NOT NULL;
+
+4.	Data Formatting
+-- Trim whitespace and ensure consistent case (e.g., upper case for force names)
+UPDATE FINAL_PROJECT.PUBLIC.FINAL_PROJECT
+SET FORCE_NAME = UPPER(TRIM(FORCE_NAME)),
+    OFFENCE_DESCRIPTION = TRIM(OFFENCE_DESCRIPTION),
+    OFFENCE_GROUP = TRIM(OFFENCE_GROUP),
+    OFFENCE_SUBGROUP = TRIM(OFFENCE_SUBGROUP);
