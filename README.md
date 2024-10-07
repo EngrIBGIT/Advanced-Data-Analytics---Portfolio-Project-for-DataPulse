@@ -39,8 +39,9 @@ Deadline: September 30, 2024
 Presentation Dates: October 5-6, 2024
 
 
+![](visualization/crimejpeg2.jpg)
 
- Police Recorded Crime Data Analysis Project
+# Police Recorded Crime Data Analysis Project
 This data analysis project aims to explore police-recorded crime statistics focusing on trends, patterns, and potential correlations. 
 
 Analyzing the dataset will help with insights into the nature of crime, identify areas of concern, and inform evidence-based policy decisions.
@@ -56,7 +57,7 @@ Through data cleaning, exploratory data analysis, and statistical modeling, the 
  
 By conducting a comprehensive analysis of police-recorded crime data, this project will contribute to a better understanding of crime trends and support evidence-based approaches to addressing crime-related challenges.
 
-![](crimejpeg2.jpg)
+
 ## Overview
 This project aims to explore trends and relationships in police-recorded crime data, using various statistical and visual tools. The dataset includes offenses reported across different police forces, years, and types of crimes. The analysis will provide insights into how crime rates have evolved over time and uncover correlations between different types of crimes.
 
@@ -66,6 +67,7 @@ Key questions addressed include:
 - How have specific crime categories, such as fraud and violent crimes, evolved?
 - Is there a correlation between different types of crimes?
 - How do crime rates vary across police forces?
+
 ## Rationale for the Project
 
 Police recorded crime data analysis is crucial for evaluating the effectiveness of investigations and police activity.
@@ -86,11 +88,10 @@ It is a vital tool for monitoring long-term trends and making data-informed deci
 - [Installation](#installation)
 - [Data Description](#data-description)
 - [Research Questions & Insights](#research-questions-and-insights)
-- [Visualizations](#visualizations)
 - [Observations](#observations)
 - [Recommendations](#recommendations)
 - [Conclusion](#conclusion)
-- [Acknowledgments](#acknowledgments)
+- [Acknowledgment](#acknowledgment)
 
 ## Installation
 
@@ -136,42 +137,48 @@ The dataset consists of police-recorded crime data, with each record detailing:
 
 ### Research Question 1: How have overall crime trends changed over time?
 
-```plt.figure(figsize=(14, 7))
-sns.lineplot(x='Date', y='Number of Offences', data=df.groupby('Date')['Number of Offences'].sum().reset_index(), linewidth=2, color='b')
-plt.title('Overall Crime Trends', fontsize=16)
-plt.xlabel('Date', fontsize=12)
-plt.ylabel('Number of Offences', fontsize=12)
-plt.grid(True, linestyle='--', alpha=0.7)
-plt.show()```
+                      plt.figure(figsize=(14, 7))
+                      sns.lineplot(x='Date', y='Number of Offences', data=df.groupby('Date')['Number of Offences'].sum().reset_index(), linewidth=2, color='b')
+                      plt.title('Overall Crime Trends', fontsize=16)
+                      plt.xlabel('Date', fontsize=12)
+                      plt.ylabel('Number of Offences', fontsize=12)
+                      plt.grid(True, linestyle='--', alpha=0.7)
+                      plt.show()
+
+![](visualization/output_27_0.png)
 
 __Insight:__
 The overall crime rate has shown fluctuations over time, with notable increases in recent years, highlighting the need for law enforcement strategies to adapt to changing crime patterns.
 
 ### Research Question 2: What are the top 5 most common offenses?
 
-```top_offences = df.groupby('Offence Description')['Number of Offences'].sum().nlargest(5)
-plt.figure(figsize=(14, 7))
-sns.barplot(x=top_offences.index, y=top_offences.values, palette='viridis', hue=top_offences.index)
-plt.title('Top 5 Most Common Offences', fontsize=16)
-plt.xlabel('Offence Description', fontsize=12)
-plt.ylabel('Number of Offences', fontsize=12)
-plt.xticks(rotation=45, ha='right')
-plt.tight_layout()
-plt.show()```
+                     top_offences = df.groupby('Offence Description')['Number of Offences'].sum().nlargest(5)
+                     plt.figure(figsize=(14, 7))
+                     sns.barplot(x=top_offences.index, y=top_offences.values, palette='viridis', hue=top_offences.index)
+                     plt.title('Top 5 Most Common Offences', fontsize=16)
+                     plt.xlabel('Offence Description', fontsize=12)
+                     plt.ylabel('Number of Offences', fontsize=12)
+                     plt.xticks(rotation=45, ha='right')
+                     plt.tight_layout()
+                     plt.show()
+
+![](visualization/output_30_0.png)
 
 __Insight__
 The most common offenses include assault without injury, assault with injury, theft, shoplifting, and fraud. Targeting these offenses can help in the efficient allocation of resources and prevention strategies.
 
 ### Research Question 3: How have fraud offenses evolved over time?
 
-```fraud_df = df[df['Offence Group'] == 'Fraud offences']
-fraud_trend = fraud_df.groupby('Date')['Number of Offences'].sum()
-plt.figure(figsize=(12, 6))
-fraud_trend.plot()
-plt.title('Trend in Fraud Offences')
-plt.xlabel('Date')
-plt.ylabel('Number of Fraud Offences')
-plt.show()```
+                    fraud_df = df[df['Offence Group'] == 'Fraud offences']
+                    fraud_trend = fraud_df.groupby('Date')['Number of Offences'].sum()
+                    plt.figure(figsize=(12, 6))
+                    fraud_trend.plot()
+                    plt.title('Trend in Fraud Offences')
+                    plt.xlabel('Date')
+                    plt.ylabel('Number of Fraud Offences')
+                    plt.show()
+
+![](visualization/output_33_0.png)
 
 __Insight:__
 Fraud offenses have steadily increased over time, with notable spikes. Continuous monitoring is essential to ensure fraud prevention efforts are effective.
@@ -179,12 +186,14 @@ Fraud offenses have steadily increased over time, with notable spikes. Continuou
 
 ### Research Question 4: Is there a correlation between different types of crimes?
 
-```crime_pivot = df.pivot_table(index='Date', columns='Offence Group', values='Number of Offences', aggfunc='sum')
-correlation_matrix = crime_pivot.corr()
-plt.figure(figsize=(12, 10))
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', center=0, linewidths=0.5)
-plt.title('Correlation Between Crime Types', fontsize=16)
-plt.show()```
+                    crime_pivot = df.pivot_table(index='Date', columns='Offence Group', values='Number of Offences', aggfunc='sum')
+                    correlation_matrix = crime_pivot.corr()
+                    plt.figure(figsize=(12, 10))
+                    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', center=0, linewidths=0.5)
+                    plt.title('Correlation Between Crime Types', fontsize=16)
+                    plt.show()
+
+![](visualization/output_36_0.png)
 
 __Insight:__
 The analysis reveals a strong correlation between property and violent crimes, suggesting that these types of crimes may often occur together or influence each other.
@@ -199,12 +208,23 @@ Increasing Drug and Sexual Offenses: Both categories show an upward trend, sugge
 # Recommendations
 
 __Targeted Interventions:__ Prioritize high-crime regions, focusing on violent and property crimes. Develop specialized units to address these correlated offenses.
+
 __Fraud Monitoring:__ Strengthen efforts to combat fraud through better reporting and investigation.
+
 __Resource Allocation:__ Use data-driven insights to allocate resources efficiently, focusing on high-frequency offenses like assault and theft.
+
 __Public Awareness Campaigns:__ Increase awareness campaigns, particularly for drug and sexual offenses, encouraging reporting and preventative action.
 
 # Conclusion
-This analysis of police-recorded crime data offers valuable insights into how crime patterns have evolved over time. By leveraging data, law enforcement agencies can develop more effective strategies for resource allocation, crime prevention, and targeted interventions. Continuous monitoring and analysis will be essential to keep pace with the evolving nature of crime.
+This analysis of police-recorded crime data offers valuable insights into how crime patterns have evolved. By leveraging data, law enforcement agencies can develop more effective strategies for resource allocation, crime prevention, and targeted interventions. Continuous monitoring and analysis will be essential to keep pace with the evolving nature of crime.
+
+Link to dataset: [Excel File](https://github.com/EngrIBGIT/Advanced-Data-Analytics---Portfolio-Project-for-DataPulse/blob/main/data/prc-pfa-mar2013-onwards-tables-191023.xlsx)
+
+Link to note book: [Police Recorded Data Analysis Project - Ibrahim](https://github.com/EngrIBGIT/Advanced-Data-Analytics---Portfolio-Project-for-DataPulse/blob/main/notebooks/Police_Recorded_DataAnalysisProject_Ibrahim.ipynb)
+
+Link to Presentation: [Analysis of Police Recorded Data - Ibrahim (PPTX)](https://github.com/EngrIBGIT/Advanced-Data-Analytics---Portfolio-Project-for-DataPulse/blob/main/presentation/Analysis_of_Police_Recorded_Data_Ibrahim_.pptx)
+
+
 
 # Acknowledgment
-Special thanks Datafied for the data analysis knowledge impartation and for the data that made this analysis possible.
+Special thanks to Datafied Academy for imparting data analysis knowledge and for the data that made this analysis possible.
